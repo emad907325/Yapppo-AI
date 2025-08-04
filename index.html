@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapppo - No Cap. Just Yap - With Yapppo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Brand Header -->
+        <header class="brand-header">
+            <h1 class="brand-title">Yapppo</h1>
+            <p class="brand-subtitle">No Cap. Just Yap - With Yapppo</p>
+        </header>
+
+        <!-- Questionnaire Section -->
+        <section id="questionnaire" class="questionnaire-section">
+            <div class="questionnaire-card">
+                <div class="card-header">
+                    <h2 class="card-title">Let's Learn Your Voice</h2>
+                    <p class="card-description">Answer 4 quick questions to help me understand your personality and communication style</p>
+                </div>
+                
+                <form id="personality-form" class="personality-form">
+                    <div class="question-item">
+                        <label for="q1" class="question-label">When a friend is upset, what's your natural response?</label>
+                        <select id="q1" name="q1" class="question-select" required>
+                            <option value="">Choose your approach...</option>
+                            <option value="listen">Listen carefully and ask how they're feeling</option>
+                            <option value="share">Share a similar experience you've had to show understanding</option>
+                            <option value="advice">Offer practical advice or solutions to help them</option>
+                        </select>
+                    </div>
+
+                    <div class="question-item">
+                        <label for="q2" class="question-label">When facing an important decision, you typically:</label>
+                        <select id="q2" name="q2" class="question-select" required>
+                            <option value="">Choose your style...</option>
+                            <option value="research">Research thoroughly and weigh all the pros and cons</option>
+                            <option value="intuition">Trust your gut feeling and go with your first instinct</option>
+                            <option value="collaborate">Ask trusted friends or family for their opinions</option>
+                        </select>
+                    </div>
+
+                    <div class="question-item">
+                        <label for="q3" class="question-label">In difficult conversations, you prefer to:</label>
+                        <select id="q3" name="q3" class="question-select" required>
+                            <option value="">Choose your approach...</option>
+                            <option value="direct">Be direct and honest, even if it might be uncomfortable</option>
+                            <option value="gentle">Choose your words carefully to be gentle and considerate</option>
+                            <option value="humor">Use humor or a lighthearted approach to ease any tension</option>
+                        </select>
+                    </div>
+
+                    <div class="question-item">
+                        <label for="q4" class="question-label">After a long week, you'd most enjoy:</label>
+                        <select id="q4" name="q4" class="question-select" required>
+                            <option value="">Choose your preference...</option>
+                            <option value="quiet">A quiet evening at home with a good book or movie</option>
+                            <option value="close">A small gathering with your closest friends</option>
+                            <option value="social">A lively party or social event with lots of people</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        <span class="btn-text">Begin Conversation</span>
+                        <span class="btn-loader" style="display: none;">Analyzing...</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="chat-section" style="display: none;">
+            <div class="chat-interface">
+                <div class="chat-header">
+                    <div class="chat-title-section">
+                        <h2 class="chat-title">Yapppo</h2>
+                        <span class="chat-status">Speaking in your voice</span>
+                    </div>
+                    <div class="chat-controls">
+                        <button id="tts-toggle" class="control-btn" title="Toggle Text-to-Speech">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M19.07 4.93C20.9 6.78 22 9.32 22 12s-1.1 5.22-2.93 7.07M16.28 8.69C17.13 9.54 17.6 10.72 17.6 12s-.47 2.46-1.32 3.31"></path>
+                            </svg>
+                        </button>
+                        <button id="reset-btn" class="control-btn" title="Start Over">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                                <path d="M21 3v5h-5"></path>
+                                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                                <path d="M3 21v-5h5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="chat-messages" class="messages-container">
+                    <!-- Messages will be dynamically added here -->
+                </div>
+                
+                <div class="input-section">
+                    <div class="input-container">
+                        <input type="text" id="chat-input" class="message-input" placeholder="Type your message..." disabled>
+                        <button id="send-btn" class="send-button" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                        <div class="typing-animation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="typing-text">Thinking...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
