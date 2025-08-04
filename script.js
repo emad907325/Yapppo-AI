@@ -40,7 +40,7 @@ class YapppoAI {
         
         // Try to get API key from server environment
         try {
-            const response = await fetch('/api/config');
+            const response = await fetch('https://yapppo-backend.onrender.com');
             if (response.ok) {
                 const config = await response.json();
                 if (config.openrouter_api_key) {
